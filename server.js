@@ -11,10 +11,13 @@ app.get("/api/fun-fact", async (req,res) => {
     const url = "https://uselessfacts.jsph.pl/api/v2/facts/random";
 
     const response = await axios.get(url);
+    const facts = response.data.text;
 
+    res.json({facts});
+} catch (error) {
+    console.error("Error", error.message);
 }
-)
-
+});
 
 app.listen(PORT, ()=>{
     console.log(`Server running on local host:${PORT}`);
