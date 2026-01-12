@@ -6,8 +6,12 @@ const PORT = 3000;
 // In server.js, create a new GET route at the path /api/fun-fact.
 // This route will be responsible for fetching the data and sending it to the client.
 
-app.get("/",  (req,res) => {
-    res.send("<h1>The Daily Grind Coffee Fun Facts</h1>");
+app.get("/api/fun-fact", async (req,res) => {
+   try{
+    const url = "https://uselessfacts.jsph.pl/api/v2/facts/random";
+
+    const response = await axios.get(url);
+
 }
 )
 
